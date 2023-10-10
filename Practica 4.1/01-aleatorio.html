@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>01-aleatorio</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            const numeroAleatorio = (max) => {
+                return Math.round(Math.random() * max);
+            };
+            let resul = numeroAleatorio(99999);
+            console.log(resul);
+
+            let premios = new Array();
+            for (let i = 0; i < 10; i++) {
+                premios.push(numeroAleatorio(99999));
+            }
+            premios.forEach((premio) => {
+                document.write(
+                    `<div class="alert alert-success" role="alert">
+                        ${premio}
+                    </div>`
+                );
+            });
+        </script>
+    </body>
+</html>
