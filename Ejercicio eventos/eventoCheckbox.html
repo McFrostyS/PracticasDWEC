@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Eventos</title>
+    </head>
+    <body>
+        <div class="container">
+            <input type="checkbox" name="checkbox" id="check1" />
+            <label for="check1">Checkbox 1</label>
+            <input type="checkbox" name="checkbox" id="check2" />
+            <label for="check2">Checkbox 2</label>
+            <input type="checkbox" name="checkbox" id="check3" />
+            <label for="check3">Checkbox 3</label>
+        </div>
+    </body>
+    <script>
+        // Al seleccionar un checkbox, des-selecciona los demás
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        /*
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", (e) => {
+                console.log(e.target);
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox !== e.target) {
+                        checkbox.checked = false;
+                    }
+                });
+            });
+        });
+        */
+
+        // Lo mismo pero sin el uso de eventos
+        checkboxes.forEach((checkbox) => {
+            checkbox.onclick = () => {
+                checkboxes.forEach((cb) => {
+                    if (cb !== checkbox) {
+                        cb.checked = false;
+                    }
+                });
+            };
+        });
+    </script>
+</html>
